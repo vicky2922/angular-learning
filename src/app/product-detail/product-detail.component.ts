@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
-import { PRODUCTS } from '../mock-products';
 import { ProductService } from '../product.service';
 import { MessageService } from '../message.service';
 
