@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { PRODUCTS } from '../mock-products';
+import { ProductService } from '../product.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -9,19 +11,29 @@ import { PRODUCTS } from '../mock-products';
 })
 export class ProductDetailComponent implements OnInit {
 
-  products =  PRODUCTS;
+  products : Product[] = [];
 
   selectedProduct?: Product;
 
   
 
-  constructor() { }
+  constructor(private productService : ProductService, private messageService : MessageService) { }
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  /*
+  getting data from service
+  */
+  getProducts(): void{
+    this.productService.getProducts()
+          .subscribe(products => this.products = products);
   }
 
   onSelect(product: Product): void {
     this.selectedProduct = product;
+    this.messageService.add(`ProductDetailComponent: selected product id = ${product.id}`)
   }
 
 }
