@@ -1,0 +1,7 @@
+<h2>Top Products</h2>
+<div class="heroes-menu">
+  <a *ngFor="let product of products"
+  routerLink="/data/{{product.id}}">
+    {{product.name}}
+  </a>
+</div>

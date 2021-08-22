@@ -12,7 +12,7 @@ export class ProductDetailComponent implements OnInit {
 
   products : Product[] = [];
 
-  selectedProduct?: Product;
+  //selectedProduct?: Product;
 
   
 
@@ -29,10 +29,10 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProducts()
           .subscribe(products => this.products = products);
   }
-
+/*
   onSelect(product: Product): void {
     this.selectedProduct = product;
     this.messageService.add(`ProductDetailComponent: selected product id = ${product.id}`)
   }
-
+*/
 }

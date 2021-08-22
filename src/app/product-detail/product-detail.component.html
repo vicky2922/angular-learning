@@ -1,9 +1,11 @@
 
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
+  <li *ngFor="let product of products">
+    <a routerLink="/data/{{product.id}}">
     <span class="badge">{{product.id}}</span> {{product.name}}
+    </a>
   </li>
 </ul>
 
-<app-product-data [product]="selectedProduct"></app-product-data>
+<!--<app-product-data [product]="selectedProduct"></app-product-data>-->
